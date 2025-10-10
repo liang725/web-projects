@@ -265,7 +265,7 @@ header p {
 /* 空状态 */
 .empty-state {
     text-align: center;
-    padding: 150px;
+    padding: 100px;
     color: var(--text-secondary);
 }
 
@@ -312,3 +312,4 @@ footer {
     outline-offset: 2px;
 
 }
+
