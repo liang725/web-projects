@@ -35,7 +35,7 @@ body {
 /*主容器*/
 .app {
     width: 100%;
-    max-width: 600px; 
+    max-width: 500px; 
     background-color: var(--container-bg);
     border-radius: 12px;
     box-shadow: 0 10px 30px var(--shadow-color);
@@ -312,4 +312,5 @@ footer {
     outline-offset: 2px;
 
 }
+
 
