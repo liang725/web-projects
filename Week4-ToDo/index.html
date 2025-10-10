@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1><i class="fa-solid fa-check-circle"></i> MyTasks</h1>
+            <p id="date">date is</p>
+        </header>
+
+    <div class="todo-input">
+        <input type="text" id="task-input" placeholder="What do you need to do?"/>
+        <button id="add-task">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </div>
+
+    <div class="filters">
+        <span class="filter active" data-filter="all">All</span>
+        <span class="filter" data-filter="active">Active</span>
+        <span class="filter" data-filter="completed">Complete</span>
+    </div>
+
+    <div class="todos-container">
+        <ul id="todos-list">
+            <li class="todo-item">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="todo-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <span class="todo-item-text">Buy me a coffee!</span>
+                <button class="delete-btn"><i class="fa-solid fa-times"></i></button>
+            </li>
+        </ul>
+
+        <div class="empty-state ">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <p>No Tasks here yet!</p>
+        </div>
+    </div>
+
+    <footer>
+        <span id="item-left">0 items left</span>
+        <button id="clear-completed">Clear completed</button>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
