@@ -1,0 +1,291 @@
+/* 基础重置和全局样式 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* 浅灰色背景 */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* 头部 (Header) 和链接样式 */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #ff6347; /* 番茄红 */
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.api-link {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.api-link a {
+    color: #1e90ff; /* 道奇蓝 */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* 搜索块 (Search) */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#search-input {
+    width: 60%;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus {
+    border-color: #ff6347;
+}
+
+#search-btn {
+    padding: 12px 25px;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #e55337;
+}
+#result-heading {
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+/* 4. 食谱列表 (Meal List) */
+.meals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.meal {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.meal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.meal img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.meal-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.meal-title {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.meal-category {
+    font-size: 0.9em;
+    color: #666;
+    background-color: #ffe0b2; /* 浅橙色 */
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+
+/* 食谱详情 (Meal Details) */
+#meal-details {
+    /* display: none; */ 
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+#back-btn {
+    background: #eb854a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+
+#back-btn:hover {
+    background: #333;
+}
+
+.meal-details-content {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.meal-details-img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.meal-details-title {
+    text-align: center;
+    color: #ff6347;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.meal-details-category {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.meal-details-category span {
+    background-color: #ffa07a; /* 浅番茄红 */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.meal-details-instructions {
+    margin-bottom: 30px;
+}
+
+.meal-details-instructions h3,
+.meal-details-ingredients h3 {
+    color: #ff6347;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.ingredients-list {
+    list-style: none;
+    columns: 2; /* 尝试分两列显示配料 */
+    padding-left: 0;
+}
+
+.ingredients-list li {
+    padding: 5px 0;
+    font-size: 1.05em;
+}
+
+.ingredients-list li i {
+    color: #3cb371; /* 中海绿 */
+    margin-right: 8px;
+}
+
+.youtube-link {
+    display: inline-block;
+    background: #c4302b; /* YouTube 红色 */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.youtube-link:hover {
+    background: #a92723;
+}
+
+.youtube-link i {
+    margin-right: 8px;
+}
+
+/* 6. 辅助类和响应式设计 */
+
+.hidden {
+    display: none !important;
+}
+
+#error-container {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    #search-input {
+        width: 70%;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #search-input, #search-btn {
+        width: 80%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    #search-btn {
+        width: 80%;
+    }
+
+    .meal-details-img {
+        max-width: 100%;
+    }
+    
+    .ingredients-list {
+        columns: 1; /* 小屏幕上改为单列 */
+    }
+}
