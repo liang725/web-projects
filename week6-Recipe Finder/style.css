@@ -5,10 +5,23 @@
     padding: 0;
 }
 
+:root {
+    /* 定义统一的圆角变量 */
+    --standard-border-radius: 8px;
+    /* 定义统一的颜色变量 */
+    --color-primary: #ff6347; /* 番茄红 */
+    --color-secondary: #ea9462; /* 搜索按钮/返回按钮 */
+    --color-hover: #a0250c; /* 搜索按钮悬停 */
+    --color-bg-light: #e5d3be; /* 页面背景 */
+    --color-text-dark: #333;
+    --color-ingredient: #3cb371; /* 中海绿 */
+    --color-youtube: #e38360;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4; /* 浅灰色背景 */
-    color: #333;
+    background-color: var(--color-bg-light); 
+    color: var(--color-text-dark);
     line-height: 1.6;
 }
 
@@ -19,7 +32,7 @@ body {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
 }
 
 /* 头部 (Header) 和链接样式 */
@@ -31,7 +44,7 @@ header {
 }
 
 header h1 {
-    color: #ff6347; /* 番茄红 */
+    color: var(--color-primary);
     font-size: 2.5em;
     margin-bottom: 5px;
 }
@@ -43,7 +56,7 @@ header h1 {
 }
 
 .api-link a {
-    color: #1e90ff; /* 道奇蓝 */
+    color: #dc6606; 
     text-decoration: none;
     font-weight: bold;
 }
@@ -53,40 +66,55 @@ header h1 {
 .search-container {
     display: flex;
     justify-content: center;
+    /* 新增 gap 属性来增加搜索框和按钮的距离 */
+    gap: 10px; 
     margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #search-input {
     width: 60%;
     padding: 12px 20px;
     border: 2px solid #ccc;
-    border-radius: 25px 0 0 25px;
+    /* 调整圆角，使其不再是半圆形，而是统一的圆角 */
+    border-radius: var(--standard-border-radius); 
     font-size: 1em;
     outline: none;
     transition: border-color 0.3s;
+    /* 允许输入框自适应 */
+    flex: 1; 
 }
 
 #search-input:focus {
-    border-color: #ff6347;
+    border-color: #e35112;
 }
 
 #search-btn {
     padding: 12px 25px;
     border: none;
-    background-color: #ff6347;
+    background-color: var(--color-secondary);
     color: white;
     font-size: 1em;
     cursor: pointer;
-    border-radius: 0 25px 25px 0;
+    /* 调整圆角，使其不再是半圆形 */
+    border-radius: var(--standard-border-radius); 
     transition: background-color 0.3s;
+    /* 防止按钮被 flex: 1 影响 */
+    flex-shrink: 0;
+}
+.hidden{
+    display: none;
 }
 
 #search-btn:hover {
-    background-color: #e55337;
+    background-color: var(--color-hover);
 }
 #result-heading {
     text-align: center;
     margin-bottom: 20px; 
+    font-size: 1.2rem;
 }
 
 /* 4. 食谱列表 (Meal List) */
@@ -99,11 +127,12 @@ header h1 {
 
 .meal {
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    position: relative;
 }
 
 .meal:hover {
@@ -126,13 +155,13 @@ header h1 {
 .meal-title {
     font-size: 1.3em;
     margin-bottom: 8px;
-    color: #333;
+    color: #000000;
 }
 
 .meal-category {
     font-size: 0.9em;
     color: #666;
-    background-color: #ffe0b2; /* 浅橙色 */
+    background-color: #ffe0b2; 
     display: inline-block;
     padding: 4px 10px;
     border-radius: 5px;
@@ -141,44 +170,43 @@ header h1 {
 
 /* 食谱详情 (Meal Details) */
 #meal-details {
-    /* display: none; */ 
     padding: 20px;
     border-top: 1px solid #ccc;
     margin-top: 20px;
 }
 
 #back-btn {
-    background: #eb854a;
+    background: var(--color-secondary);
     color: white;
     border: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
     cursor: pointer;
     margin-bottom: 20px;
     transition: background 0.3s;
 }
 
 #back-btn:hover {
-    background: #333;
+    background: var(--color-hover);
 }
 
 .meal-details-content {
     background: #f9f9f9;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
 }
 
 .meal-details-img {
     max-width: 400px;
     height: auto;
-    border-radius: 8px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
     display: block;
     margin: 0 auto 20px;
 }
 
 .meal-details-title {
     text-align: center;
-    color: #ff6347;
+    color: var(--color-primary);
     margin-bottom: 15px;
     font-size: 2em;
 }
@@ -189,7 +217,7 @@ header h1 {
 }
 
 .meal-details-category span {
-    background-color: #ffa07a; /* 浅番茄红 */
+    background-color: #ffa07a; 
     color: white;
     padding: 6px 12px;
     border-radius: 5px;
@@ -202,36 +230,62 @@ header h1 {
 
 .meal-details-instructions h3,
 .meal-details-ingredients h3 {
-    color: #ff6347;
+    color: var(--color-primary);
     border-bottom: 2px solid #eee;
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
 
+/* 配料列表居中 */
+.meal-details-ingredients {
+    text-align: center; /* 使 h3 居中 */
+}
+
+
 .ingredients-list {
     list-style: none;
-    columns: 2; /* 尝试分两列显示配料 */
+    /* 强制单列显示 */
+    columns: 1; 
     padding-left: 0;
+    /* 保持居中，设置最大宽度 */
+    max-width: 450px; /* 适当减小宽度让其更像一列 */
+    margin: 0 auto; 
+    text-align: left; /* 列表项内容左对齐 */
 }
 
 .ingredients-list li {
-    padding: 5px 0;
+    /* 每一个 li 都是一个单独的容器样式 */
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直居中图标和文本 */
+    padding: 10px 15px;
+    margin-bottom: 8px; /* 间距 */
+    background-color: #efefef; /* 浅绿色背景 */
+    border-radius: 5px; /* 独立圆角 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     font-size: 1.05em;
+    break-inside: avoid; 
 }
 
 .ingredients-list li i {
-    color: #3cb371; /* 中海绿 */
-    margin-right: 8px;
+    color: var(--color-ingredient);
+    margin-right: 10px;
+    flex-shrink: 0; /* 确保图标不缩小 */
 }
 
+
+
+/* 视频链接居中 */
+.youtube-link-wrapper {
+    text-align: center; /* 使内部的 inline-block 链接居中 */
+    margin-top: 20px;
+}
 .youtube-link {
-    display: inline-block;
-    background: #c4302b; /* YouTube 红色 */
+    display: inline-block; /* 保持链接为 inline-block 才能被父元素居中 */
+    background: var(--color-youtube);
     color: white;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: var(--standard-border-radius); /* 统一圆角 */
     transition: background 0.3s;
 }
 
@@ -243,7 +297,7 @@ header h1 {
     margin-right: 8px;
 }
 
-/* 6. 辅助类和响应式设计 */
+/* 辅助类和响应式设计 */
 
 .hidden {
     display: none !important;
@@ -262,30 +316,37 @@ header h1 {
         padding: 10px;
     }
 
-    #search-input {
-        width: 70%;
-    }
-    
+    /* 修复搜索框响应式 */
     .search-container {
         flex-direction: column;
         align-items: center;
+        gap: 0; /* 小屏幕上移除间距 */
     }
     
-    #search-input, #search-btn {
+    #search-input {
+        /* 小屏幕上占据宽度并设置统一圆角 */
         width: 80%;
-        border-radius: 5px;
+        border-radius: var(--standard-border-radius);
         margin-bottom: 10px;
     }
     
     #search-btn {
+        /* 小屏幕上占据宽度 */
         width: 80%;
+        border-radius: var(--standard-border-radius);
     }
+    /* 修复搜索框响应式结束 */
 
     .meal-details-img {
         max-width: 100%;
     }
     
+    /* 确保小屏幕上也是单列且具有容器样式 */
     .ingredients-list {
-        columns: 1; /* 小屏幕上改为单列 */
+        columns: 1; 
+        max-width: 100%; /* 允许占据全部宽度 */
+    }
+    .ingredients-list li {
+        margin-bottom: 5px;
     }
 }
